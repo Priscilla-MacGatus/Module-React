@@ -1,4 +1,5 @@
 import PlayerScore from "@/components/PlayerScore/PlayerScore.jsx";
+
 import "./HighScoreTable.scss";
 // https://react.dev/learn/rendering-lists
 
@@ -12,11 +13,9 @@ const HighScoreTable = ({ country, scores = [] }) => (
       </tr>
     </thead>
     <tbody>
-      {scores
-        .sort((a, b) => b.s - a.s)
-        .map((score, index) => (
-          <PlayerScore key={index} name={score.n} score={score.s} />
-        ))}
+      {scores.map((score, index) => (
+        <PlayerScore key={index} name={score.n} score={score.s} />
+      ))}
     </tbody>
   </table>
 );
