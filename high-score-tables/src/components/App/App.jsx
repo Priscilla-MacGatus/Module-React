@@ -7,9 +7,11 @@ const App = () => (
     <header className="app__header">
       <h1 className="app__heading">High Scores</h1>
     </header>
-    {scores.map(({ name, scores }, index) => (
-      <HighScoreTable country={name} scores={scores} key={index} />
-    ))}
+    {scores
+      .sort((a, b) => a.name.localeCompare(b.name))
+      .map(({ name, scores }, index) => (
+        <HighScoreTable country={name} scores={scores} key={index} />
+      ))}
   </div>
 );
 
